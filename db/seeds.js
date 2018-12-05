@@ -24,27 +24,18 @@ mongoose.connect(dbURI, (err, db) => {
       name: 'Im in a Dream',
       artist: 'Naomi Okubo',
       image: 'http://www.residencyunlimited.org/wp-content/uploads/2018/01/naomi.jpg',
-      contemporary: 'Boolean'
+      contemporary: true
     },
     {
-      name: 'The Dream of the Fishermans Wife',
-      artist: 'String',
-      image: 'String',
-      description: 'String',
-      contemporary: 'Boolean'
+      name: 'Moe',
+      artist: 'Ikenaga Yasunari',
+      image: 'http://ikenaga-yasunari.com/paintings/124x.jpg',
+      contemporary: true
     }
   ])
 
-
-
-
-    .then(burgers => {
-      console.log(`${burgers.length} burgers created`);
-      User
-        .create(userData)
-        .then(users => {
-          console.log(`${users.length} users created`);
-        })
+    .then(paintings => {
+      console.log(`${paintings.length} paintings created`)
         .catch(err => console.log(err))
         .finally(() => mongoose.connection.close());
     });
