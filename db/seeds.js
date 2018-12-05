@@ -31,6 +31,12 @@ mongoose.connect(dbURI, (err, db) => {
       artist: 'Ikenaga Yasunari',
       image: 'http://ikenaga-yasunari.com/paintings/124x.jpg',
       contemporary: true
+    },
+    {
+      name: 'The Lion of the Kingdom that Transcends Death',
+      artist: 'Takashi Murakami',
+      image: 'https://gagosian.com/media/images/exhibitions/2018/takashi-murakami-none/qf3OhlnkmP88_2340x1316.jpg',
+      contemporary: true
     }
   ])
 
