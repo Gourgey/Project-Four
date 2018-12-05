@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Index from './components/Index';
 
 class App extends React.Component {
   render() {
     return (
-      <h1>Hello World!</h1>
+      <BrowserRouter>
+        <div>
+          <main>
+            <Switch>
+              <Route exact path='/paintings' component={Index}/>
+            </Switch>
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
-const Painting = require('Painting');
+const Painting = require('../models/painting');
 
 
 mongoose.connect(dbURI, (err, db) => {
