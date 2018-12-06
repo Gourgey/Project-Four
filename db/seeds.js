@@ -2,10 +2,23 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const Painting = require('../models/painting');
+const User = require('../models/user');
+
 
 mongoose.connect(dbURI, (err, db) => {
   db.dropDatabase();
 
+  User.create([
+    {
+      username: 'a',
+      email: 'a@a',
+      password: 'a',
+      passwordConfirmation: 'a'
+    }
+  ])
+    .then(users => {
+      console.log(`${users.length} users created`);
+    });
 
   Painting.create([
     {
