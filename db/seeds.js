@@ -9,12 +9,6 @@ mongoose.connect(dbURI, (err, db) => {
 
   Painting.create([
     {
-      name: 'The Dream of the Fishermans Wife',
-      artist: 'Katsushika Hokusai',
-      image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Katsushika-Hokusai-The-Dream-of-the-Fishermans-Wife-detail.jpg',
-      contemporary: false
-    },
-    {
       name: 'Sunrise over the Eastern Sea',
       artist: 'Fujishima Takeji',
       image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Fujishima-Takeji-Sunrise-over-the-Eastern-Sea-detail.jpg',
@@ -33,6 +27,12 @@ mongoose.connect(dbURI, (err, db) => {
       contemporary: true
     },
     {
+      name: 'The Dream of the Fishermans Wife',
+      artist: 'Katsushika Hokusai',
+      image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Katsushika-Hokusai-The-Dream-of-the-Fishermans-Wife-detail.jpg',
+      contemporary: false
+    },
+    {
       name: 'The Lion of the Kingdom that Transcends Death',
       artist: 'Takashi Murakami',
       image: 'https://gagosian.com/media/images/exhibitions/2018/takashi-murakami-none/qf3OhlnkmP88_2340x1316.jpg',
@@ -41,8 +41,7 @@ mongoose.connect(dbURI, (err, db) => {
   ])
 
     .then(paintings => {
-      console.log(`${paintings.length} paintings created`)
-        .catch(err => console.log(err))
-        .finally(() => mongoose.connection.close());
-    });
+      console.log(`${paintings.length} paintings created`);
+    }).catch(err => console.log(err))
+    .finally(() => mongoose.connection.close());
 });

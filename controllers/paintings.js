@@ -8,6 +8,28 @@ function indexRoute(req, res, next) {
     .catch(next);
 }
 
+function createRoute(req, res, next) {
+  Painting
+    .create(req.body)
+    .then(painting => res.status(201).json(painting))
+    .catch(next);
+}
+
+function showRoute(req, res, next) {
+  Painting
+    .findById(req.params.id)
+    .exec()
+    .then(painting => res.json(painting))
+    .catch(next);
+}
+
+
+
+
 module.exports = {
-  index: indexRoute
+  index: indexRoute,
+  create: createRoute,
+  show: showRoute,
+  update: updateRoute,
+  delete: deleteRoute
 };

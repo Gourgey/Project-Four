@@ -2,8 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import PaintingBox from './PaintingBox';
 
-
-
 class PaintingIndex extends React.Component {
   constructor(props) {
     super(props);

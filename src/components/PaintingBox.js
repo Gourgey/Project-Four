@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 function PaintingBox({ painting }) {
   return (
     <Link to={`/paintings/${painting._id}`}>
-      <article className="painting-box">
+      <div>
+        <p>{painting.name}</p>
         <img src={painting.image} />
-        <hr />
-        <h3>{painting.name}</h3>
-      </article>
+      </div>
     </Link>
   );
 }
