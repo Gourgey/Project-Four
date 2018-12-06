@@ -20,6 +20,7 @@ mongoose.connect(dbURI, (err, db) => {
       console.log(`${users.length} users created`);
     });
 
+
   Painting.create([
     {
       name: 'Sunrise over the Eastern Sea',
