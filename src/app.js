@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
 
 import Header from './components/Header';
+import Profile from './components/Profile';
 import Home from './components/paintings/Home';
 import Index from './components/paintings/Index';
 import Show from './components/paintings/Show';
@@ -25,6 +26,7 @@ class App extends React.Component {
               <Route exact path='/paintings/:id' component={Show}/>
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
+              <Route path="/profile" component={Profile} />
             </Switch>
           </main>
         </div>
