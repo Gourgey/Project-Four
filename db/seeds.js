@@ -3,9 +3,9 @@ mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const Painting = require('../models/painting');
 
-
 mongoose.connect(dbURI, (err, db) => {
   db.dropDatabase();
+
 
   Painting.create([
     {
@@ -39,7 +39,6 @@ mongoose.connect(dbURI, (err, db) => {
       contemporary: true
     }
   ])
-
     .then(paintings => {
       console.log(`${paintings.length} paintings created`);
     }).catch(err => console.log(err))
