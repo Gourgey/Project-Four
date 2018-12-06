@@ -7,6 +7,7 @@ router.route('/paintings')
 
 router.route('/paintings/:id')
   .get(paintings.show)
-  .put(paintings.update);
-  
+  .put(paintings.update)
+  .delete(paintings.delete);
+
 module.exports = router;

@@ -35,12 +35,20 @@ function updateRoute(req, res, next) {
     .catch(next);
 }
 
-
+function deleteRoute(req, res, next) {
+  Painting
+    .findById(req.params.id)
+    .exec()
+    .then(painting => painting.remove())
+    .then(() => res.sendStatus(204))
+    .catch(next);
+}
 
 
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };
