@@ -7,14 +7,14 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-// userSchema.plugin(require('mongoose-unique-validator'));
-//
-// userSchema.set('toJSON', {
-//   transform(doc, json) {
-//     delete json.password;
-//     return json;
-//   }
-// });
+userSchema.plugin(require('mongoose-unique-validator'));
+
+userSchema.set('toJSON', {
+  transform(doc, json) {
+    delete json.password;
+    return json;
+  }
+});
 
 userSchema.methods.validatePassword = function validatePassword(password){
   return bcrypt.compareSync(password, this.password);
