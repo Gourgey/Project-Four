@@ -23,6 +23,18 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function updateRoute(req, res, next) {
+  Painting
+    .findById(req.params.id)
+    .exec()
+    .then(painting => {
+      Object.assign(painting, req.body);
+      return painting.save();
+    })
+    .then(painting => res.json(painting))
+    .catch(next);
+}
+
 
 
 
@@ -30,6 +42,5 @@ module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
-  update: updateRoute,
-  delete: deleteRoute
+  update: updateRoute
 };
