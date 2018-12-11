@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { saveToken } from '../../lib/auth';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   state = {};
@@ -23,24 +24,27 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <input
-            name="email"
-            placeholder="Email"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={this.handleChange}
-          />
-        </div>
-        <button>Login</button>
-      </form>
+      <section>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input
+              name="email"
+              placeholder="Email"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={this.handleChange}
+            />
+          </div>
+          <button>Login</button>
+        </form>
+        <h1>Dont have an account? <Link to="/register">Register here!</Link></h1>
+      </section>
     );
   }
 }

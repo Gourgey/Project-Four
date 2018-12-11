@@ -12,9 +12,11 @@ router.route('/paintings/:id')
   .put(paintings.update)
   .delete(paintings.delete);
 
-router.route('/users/:id').get(user.showProfile);
-
 router.post('/register', auth.register);
 router.post('/login', auth.login);
+
+router.route('/users/:userId')
+  .get(user.profile);
+
 
 module.exports = router;

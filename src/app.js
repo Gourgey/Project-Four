@@ -23,10 +23,10 @@ class App extends React.Component {
               <Route exact path='/' component={Home}/>
               <Route exact path='/paintings' component={Index}/>
               <Route exact path='/paintings/new' component={New}/>
-              <Route exact path='/paintings/:id' component={Show}/>
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
+              <Route exact path="/users/:id" component={Profile} />
+              <Route exact path='/paintings/:id' component={Show}/>
             </Switch>
           </main>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { decodeToken } from '../lib/auth';
+import axios from 'axios';
+import { decodeToken } from '../../lib/auth';
 
 class Profile extends React.Component {
   constructor(props) {

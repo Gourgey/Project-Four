@@ -21,6 +21,10 @@ export function deleteToken() {
   localStorage.removeItem('painting-token');
 }
 
+export function getHeader(){
+  return { headers: { Authorization: `Bearer ${getToken()}` } };
+}
+
 export function isAuthenticated() {
   return !!getToken();
 }

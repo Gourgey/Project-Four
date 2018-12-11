@@ -7,31 +7,10 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-userSchema.plugin(require('mongoose-unique-validator'));
-
-userSchema.set('toJSON', {
-  transform(doc, json) {
-    delete json.password;
-    return json;
-  }
-});
 
 userSchema.methods.validatePassword = function validatePassword(password){
   return bcrypt.compareSync(password, this.password);
 };
-
-userSchema
-  .virtual('passwordConfirmation')
-  .set(function setPasswordConfirmation(passwordConfirmation){
-    this._passwordConfirmation = passwordConfirmation;
-  });
-
-userSchema.pre('validate', function checkPassword(next){
-  if(this.isModified('password') && this._passwordConfirmation !== this.password){
-    this.invalidate('passwordConfirmation', 'does not match');
-  }
-  next();
-});
 
 userSchema.pre('save', function hashPassword(next){
   if(this.isModified('password')){
