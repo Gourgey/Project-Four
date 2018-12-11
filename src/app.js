@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
 
 import Header from './components/Header';
-import Profile from './components/Profile';
+import Profile from './components/users/Profile';
 import Home from './components/paintings/Home';
 import Index from './components/paintings/Index';
 import Show from './components/paintings/Show';
@@ -25,7 +25,7 @@ class App extends React.Component {
               <Route exact path='/paintings/new' component={New}/>
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route exact path="/users/:id" component={Profile} />
+              <Route exact path="/users/:userId" component={Profile} />
               <Route exact path='/paintings/:id' component={Show}/>
             </Switch>
           </main>

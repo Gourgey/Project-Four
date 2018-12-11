@@ -27,7 +27,7 @@ class Header extends React.Component {
           <Link className="nav-item" to='/paintings/new'>Add your Print</Link>
           {!isAuthenticated() && <Link className="nav-item" to="/login">Login</Link>}
           {isAuthenticated() && <Link className="nav-item" to="/" onClick={this.handleLogout}>Logout</Link>}
-          {isAuthenticated() && <Link className="nav-item" to={`/users/${user._id}`}>{decodeToken().username}</Link>}
+          {isAuthenticated() && <Link className="navbar-item" to={`/users/${decodeToken().sub}`}>{decodeToken().username}</Link>}
         </div>
       </nav>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { decodeToken } from '../../lib/auth';
+import { decodeToken, getHeader } from '../../lib/auth';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -8,12 +8,28 @@ class Profile extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    axios.get(`/api/users/${this.props.match.params.userId}`, getHeader())
+      .then(res => {
+        this.setState({ user: res.data });
+      });
+  }
+
   render() {
-    console.log(this.state.purchases);
+    const user = this.state.user;
+    console.log(user);
     return(
       <main>
-        {
-          <h1>Welcome back! {decodeToken().username}</h1>
+        { user
+          ?
+          <div>
+            <div>
+              <p>{user.username}</p>
+              <img src={user.picture}/>
+            </div>
+          </div>
+          :
+          <p>HALT!</p>
         }
       </main>
     );

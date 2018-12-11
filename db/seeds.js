@@ -19,7 +19,15 @@ const userData = [
     _id: userIds[0],
     username: 'a',
     email: 'a@a',
-    password: 'a'
+    password: 'a',
+    picture: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Aiga_toiletsq_men.svg'
+  },
+  {
+    _id: userIds[1],
+    username: 'b',
+    email: 'b@b',
+    password: 'b',
+    picture: 'https://cdn0.iconfinder.com/data/icons/toilet-and-restrooms-symbols/232/toilet005-512.png'
   }
 ];
 
