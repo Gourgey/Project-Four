@@ -5,6 +5,7 @@ import './scss/style.scss';
 
 import Header from './components/Header';
 import Profile from './components/users/Profile';
+import EditProfile from './components/users/EditProfile';
 import Home from './components/paintings/Home';
 import Index from './components/paintings/Index';
 import Show from './components/paintings/Show';
@@ -26,6 +27,7 @@ class App extends React.Component {
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route exact path="/users/:userId" component={Profile} />
+              <Route exact path="/users/:userId/edit" component={EditProfile} />
               <Route exact path='/paintings/:id' component={Show}/>
             </Switch>
           </main>

@@ -48,9 +48,8 @@ class Register extends React.Component {
         </div>
         <div>
           <input
-            type="password"
-            name="passwordConfirmation"
-            placeholder="Confirm Password"
+            name="picture"
+            placeholder="Profile Picture URL"
             onChange={this.handleChange}
           />
         </div>

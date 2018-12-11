@@ -17,10 +17,10 @@ const userIds = [
 const userData = [
   {
     _id: userIds[0],
-    username: 'a',
-    email: 'a@a',
-    password: 'a',
-    picture: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Aiga_toiletsq_men.svg'
+    username: 'Josh',
+    email: 'josh@josh',
+    password: 'josh',
+    picture: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Philip_Fry.png/220px-Philip_Fry.png'
   },
   {
     _id: userIds[1],
@@ -28,6 +28,13 @@ const userData = [
     email: 'b@b',
     password: 'b',
     picture: 'https://cdn0.iconfinder.com/data/icons/toilet-and-restrooms-symbols/232/toilet005-512.png'
+  },
+  {
+    _id: userIds[2],
+    username: 'a',
+    email: 'a@a',
+    password: 'a',
+    picture: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Aiga_toiletsq_men.svg'
   }
 ];
 
