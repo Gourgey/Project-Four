@@ -3,6 +3,7 @@ mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const Painting = require('../models/painting');
 const User = require('../models/user');
+const Purchase = require('../models/purchases');
 
 
 mongoose.connect(dbURI);
@@ -71,6 +72,8 @@ const paintingData = [
     // contemporary: true
   }
 ];
+
+Purchase.collection.drop();
 
 Painting.collection.drop();
 User.collection.drop();
