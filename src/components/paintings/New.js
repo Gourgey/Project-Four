@@ -11,13 +11,19 @@ class NewPainting extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('/api/burgers', this.state)
+    axios.post('/api/paintings', this.state)
       .then(() => this.props.history.push('/paintings'));
   }
 
   handleChange({ target: { name, value }}) {
     this.setState({ [name]: value });
   }
+
+  // <label>Contemporary?</label>
+  // <input onChange={this.handleChange}
+  //   value={this.state.contemporary || ''}
+  //   name="contemporary"
+  //   type="checkbox"/>
 
   render() {
     return (
@@ -35,11 +41,6 @@ class NewPainting extends React.Component {
             value={this.state.image || ''}
             name="image"
             placeholder="ImageUrl"/>
-          <label>Contemporary?</label>
-          <input onChange={this.handleChange}
-            value={this.state.contemporary || ''}
-            name="contemporary"
-            type="checkbox"/>
           <button>Add your print</button>
         </form>
       </main>
