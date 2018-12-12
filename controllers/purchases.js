@@ -3,7 +3,7 @@ const Purchase = require('../models/purchases');
 
 function completeIndexRoute(req, res, next) {
   Purchase.find()
-    .populate('painting')
+    .populate('paintings')
     .then(purchases => res.json(purchases))
     .catch(next);
 }
