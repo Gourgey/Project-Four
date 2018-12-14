@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
+import 'bulma';
 
 import Header from './components/Header';
 import Profile from './components/users/Profile';
@@ -12,6 +13,8 @@ import Show from './components/paintings/Show';
 import New from './components/paintings/New';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Basket from './components/Basket';
+import Purchases from './components/PurchaseHistory';
 
 class App extends React.Component {
   render() {
@@ -24,11 +27,13 @@ class App extends React.Component {
               <Route exact path='/' component={Home}/>
               <Route exact path='/paintings' component={Index}/>
               <Route exact path='/paintings/new' component={New}/>
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route exact path="/users/:userId" component={Profile} />
-              <Route exact path="/users/:userId/edit" component={EditProfile} />
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+              <Route exact path='/users/:userId' component={Profile} />
+              <Route exact path='/users/:userId/edit' component={EditProfile} />
               <Route exact path='/paintings/:id' component={Show}/>
+              <Route exact path='/basket' component={Basket} />
+              <Route exact path='/purchases' component={Purchases}/>
             </Switch>
           </main>
         </div>

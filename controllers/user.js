@@ -2,6 +2,7 @@ const User = require('../models/user');
 
 function show(req, res, next){
   User.findById(req.params.userId)
+    .populate('yourPrints')
     .then(user => res.json(user))
     .catch(next);
 }

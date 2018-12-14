@@ -4,6 +4,7 @@ const { dbURI } = require('../config/environment');
 const Painting = require('../models/painting');
 const User = require('../models/user');
 const Purchase = require('../models/purchases');
+const Message = require('../models/messages');
 
 
 mongoose.connect(dbURI);
@@ -40,35 +41,54 @@ const userData = [
 ];
 
 
+const messageData = [
+  {
+    from: userIds[0],
+    to: userIds[1],
+    content: 'Yo'
+  }, {
+    from: userIds[1],
+    to: userIds[0],
+    content: 'Yo'
+  }, {
+    from: userIds[0],
+    to: userIds[1],
+    content: 'Bored?'
+  }, {
+    from: userIds[1],
+    to: userIds[0],
+    content: '.....yup'
+  }
+];
+
+
 const paintingData = [
   {
     name: 'Sunrise over the Eastern Sea',
     artist: 'Fujishima Takeji',
-    image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Fujishima-Takeji-Sunrise-over-the-Eastern-Sea-detail.jpg'
+    image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Fujishima-Takeji-Sunrise-over-the-Eastern-Sea-detail.jpg',
+    price: 2000
     // contemporary: false
   },
   {
     name: 'Im in a Dream',
     artist: 'Naomi Okubo',
-    image: 'http://www.residencyunlimited.org/wp-content/uploads/2018/01/naomi.jpg'
+    image: 'http://www.residencyunlimited.org/wp-content/uploads/2018/01/naomi.jpg',
+    price: 34000
     // contemporary: true
   },
   {
     name: 'Moe',
     artist: 'Ikenaga Yasunari',
-    image: 'http://ikenaga-yasunari.com/paintings/124x.jpg'
+    image: 'http://ikenaga-yasunari.com/paintings/124x.jpg',
+    price: 800
     // contemporary: true
-  },
-  {
-    name: 'The Dream of the Fishermans Wife',
-    artist: 'Katsushika Hokusai',
-    image: 'https://d2jv9003bew7ag.cloudfront.net/uploads/Katsushika-Hokusai-The-Dream-of-the-Fishermans-Wife-detail.jpg'
-    // contemporary: false
   },
   {
     name: 'The Lion of the Kingdom that Transcends Death',
     artist: 'Takashi Murakami',
-    image: 'https://gagosian.com/media/images/exhibitions/2018/takashi-murakami-none/qf3OhlnkmP88_2340x1316.jpg'
+    image: 'https://gagosian.com/media/images/exhibitions/2018/takashi-murakami-none/qf3OhlnkmP88_2340x1316.jpg',
+    price: 85000
     // contemporary: true
   }
 ];
@@ -84,6 +104,10 @@ User.create(userData)
     Painting.create(paintingData)
       .then(paintings => {
         console.log(`Created ${paintings.length} paintings`);
-        mongoose.connection.close();
+        Message.create(messageData)
+          .then(messages => {
+            console.log(`Created ${messages.length} messages`);
+            mongoose.connection.close();
+          });
       });
   });

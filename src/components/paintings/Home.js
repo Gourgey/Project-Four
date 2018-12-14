@@ -8,8 +8,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main>
-        <h1>Welcome</h1>
+      <main className="home-container">
+        <img className="home-image" src="http://ikenaga-yasunari.com/174index.jpg" />
       </main>
     );
   }

@@ -13,18 +13,29 @@ export function decodeToken() {
   return decoded;
 }
 
-export function currentUserId() {
+export function tokenUsername() {
+  return decodeToken().username;
+}
+
+export function tokenUserId() {
   return decodeToken().sub;
+}
+
+export function tokenUserName() {
+  return decodeToken().name;
 }
 
 export function deleteToken() {
   localStorage.removeItem('painting-token');
 }
 
-export function getHeader(){
-  return { headers: { Authorization: `Bearer ${getToken()}` } };
-}
-
 export function isAuthenticated() {
   return !!getToken();
+}
+
+
+export function authorizationHeader() {
+  return {
+    headers: { Authorization: 'Bearer ' + getToken() }
+  };
 }

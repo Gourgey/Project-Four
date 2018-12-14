@@ -1,5 +1,20 @@
 const Purchase = require('../models/purchases');
-const mongo = require('mongodb');
+
+
+function createRoute(req, res, next) {
+  if (Array.isArray(req.body)) {
+    req.body.forEach(purchase => {
+      purchase.user = req.tokenUserId;
+      purchase._id = null;
+    });
+  } else {
+    req.body.user = req.tokenUserId;
+    req.body._id = null;
+  }
+  Purchase.create(req.body)
+    .then(purchase => res.json(purchase))
+    .catch(next);
+}
 
 
 function completeIndexRoute(req, res, next) {
@@ -16,24 +31,10 @@ function userIndexRoute(req, res, next) {
     .catch(next);
 }
 
-function createRoute(req, res, next) {
-  if (Array.isArray(req.body)) {
-    req.body.forEach(purchase => {
-      purchase.user = req.tokenUserId;
-      purchase._id = mongo.ObjectId();
-    });
-  } else {
-    req.body.user = req.tokenUserId;
-    req.body._id = mongo.ObjectId();
-  }
-  Purchase.create(req.body)
-    .then(purchase => res.json(purchase))
-    .catch(next);
-}
 
 
 module.exports = {
+  create: createRoute,
   completeIndex: completeIndexRoute,
-  userIndex: userIndexRoute,
-  create: createRoute
+  userIndex: userIndexRoute
 };

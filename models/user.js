@@ -8,6 +8,16 @@ const userSchema = new mongoose.Schema({
   picture: { type: String, required: true }
 });
 
+userSchema.virtual('yourPrints', {
+  ref: 'Painting',
+  localField: '_id',
+  foreignField: 'addedBy'
+});
+
+userSchema.set('toJSON', {
+  virtuals: true
+});
+
 
 userSchema.methods.validatePassword = function validatePassword(password){
   return bcrypt.compareSync(password, this.password);
