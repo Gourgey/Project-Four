@@ -10,11 +10,7 @@ function PaintingBox({ painting }) {
         <img className="index-painting-image" src={painting.image} />
       </div>
       <div className="index-user-details-container">
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
+        <h1>Currently Sold at: £{painting.price}</h1>
       </div>
     </Link>
   );

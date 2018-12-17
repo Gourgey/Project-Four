@@ -9,7 +9,6 @@ function indexRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
-  req.body.addedBy = req.currentUser._id;
   Painting
     .create(req.body)
     .then(painting => res.status(201).json(painting))

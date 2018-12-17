@@ -64,6 +64,9 @@
 
     .heading-switches {
       max-width: 200px;
+      font-size: 40px;
+      padding-right: 260px;
+      padding-top: 20px;
     }
 
     .heading-switches:hover {
@@ -75,6 +78,7 @@
 
 .index-title {
   text-align: center;
+  font-size: 50px;
 }
 
 .index-painting-container {
@@ -108,4 +112,43 @@
 
   }
 
+}
+
+
+.profile-title {
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+
+  .profile-selling-details {
+    font-size: 30px;
+    padding-right: 500px;
+  }
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-right: 2px solid black;
+}
+
+
+.favourite {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+
+
+  .favourites-title {
+    font-size: 25px;
+  }
+
+  .favourites-details {
+    font-size: 15px;
+  }
 }

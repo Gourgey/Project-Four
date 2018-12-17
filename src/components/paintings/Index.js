@@ -14,7 +14,7 @@ class PaintingIndex extends React.Component {
   render() {
     return (
       <main>
-        <h1 className="index-title">Paintings</h1>
+        <h1 className="index-title">The Āto Collection</h1>
         <div>
           {this.state.paintings && this.state.paintings.map(
             painting => <PaintingBox key={painting._id} painting={painting}/>
